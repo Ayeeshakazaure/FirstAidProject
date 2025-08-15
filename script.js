@@ -244,7 +244,7 @@ let currentLang = 'en';
 const videoData = {
     'bleeding': {
         title: 'Bleeding Control Techniques',
-        url: './videos/bleeding.MOV', // Replace with actual video URL
+        url: './videos/bleeding.MP4', // Replace with actual video URL
         steps: [
             'Apply direct pressure to the wound',
             'Elevate the injured area above heart level',
@@ -255,7 +255,7 @@ const videoData = {
     },
     'burns': {
         title: 'Burns Treatment Guide',
-        url: './videos/burns.MOV', // Replace with actual video URL
+        url: './videos/burns.MP4', // Replace with actual video URL
         steps: [
             'Cool the burn with running water for 10-20 minutes',
             'Remove any clothing or jewelry near the burn',
@@ -266,7 +266,7 @@ const videoData = {
     },
     'shock': {
         title: 'Shock Treatment Protocol',
-        url: './videos/elec', // Replace with actual video URL
+        url: './videos/shock.Mp4', // Replace with actual video URL
         steps: [
             'Lay the person down and elevate legs',
             'Keep the person warm',
@@ -288,7 +288,7 @@ const videoData = {
     },
     'unconscious': {
         title: 'Unconscious Person Care',
-        url: 'https://www.youtube.com/embed/example-unconscious-video', // Replace with actual video URL
+        url: './videos/faint.MP4', // Replace with actual video URL
         steps: [
             'Check for responsiveness',
             'Open airway and check breathing',
@@ -299,7 +299,7 @@ const videoData = {
     },
     'heat-stroke': {
         title: 'Heat Stroke Emergency Response',
-        url: './videos/heatstroke1.mp4', // Replace with actual video URL
+        url: './videos/hs.MP4', // Replace with actual video URL
         steps: [
             'Move person to cool, shady area',
             'Remove excess clothing',
@@ -310,7 +310,7 @@ const videoData = {
     },
     'asthma': {
         title: 'Asthma Attack Management',
-        url: 'https://www.youtube.com/embed/example-asthma-video', // Replace with actual video URL
+        url: './videos/asthma.MP4', // Replace with actual video URL
         steps: [
             'Help person sit upright',
             'Assist with inhaler if available',
@@ -321,7 +321,7 @@ const videoData = {
     },
     'choking': {
         title: 'Choking Emergency Response',
-        url: 'https://www.youtube.com/watch?v=8VSmo30jGV8&pp=ygUjZmlyc3QgYWlkIGZvciBjaG9raW5nIGFwcm9rbyBkb2N0b3LSBwkJrQkBhyohjO8%3D', // Replace with actual video URL
+        url: './videos/choke.MP4', // Replace with actual video URL
         steps: [
             'Encourage coughing if person is conscious',
             'Perform back blows (5 sharp blows)',
