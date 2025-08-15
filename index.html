@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Aid Emergency Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="voice-controls">
+            <button class="voice-btn" id="playBtn" title="Read page aloud">🔊</button>
+            <button class="voice-btn" id="pauseBtn" title="Pause reading" style="display: none;">⏸️</button>
+            <button class="voice-btn" id="stopBtn" title="Stop reading">⏹️</button>
+            <button class="voice-speed-control" id="speedBtn" title="Speech speed">1x</button>
+        </div>
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="ha">Hausa</button>
+        </div>
+        <h1 data-translate="title">🚨 First Aid Emergency Guide</h1>
+        <p data-translate="subtitle">Quick access to life-saving emergency instructions</p>
+    </div>
+
+    <div class="nav-tabs">
+        <button class="nav-tab active" data-tab="emergencies" data-translate="nav_emergencies">🚨 Emergencies</button>
+        <button class="nav-tab" data-tab="medical-resources" data-translate="nav_medical">🏥 Medical Resources</button>
+        <button class="nav-tab" data-tab="emergency-contacts" data-translate="nav_contacts">📞 Emergency Contacts</button>
+        <button class="nav-tab" data-tab="learn-more" data-translate="nav_learn">📚 Learn More</button>
+    </div>
+
+    <!-- Emergency Tab -->
+    <div id="emergencies" class="tab-content active">
+        <div class="search-container">
+            <input type="text" class="search-box" data-translate-placeholder="search_placeholder" placeholder="🔍 Search by Emergency Type..." id="searchBox">
+        </div>
+
+        <div class="container">
+            <div class="categories-grid" id="categoriesGrid">
+                <div class="category-card bleeding" data-category="bleeding">
+                    <span class="card-icon">🩸</span>
+                    <h3 class="card-title" data-translate="bleeding_title">Bleeding Control</h3>
+                    <p class="card-subtitle" data-translate="bleeding_subtitle">Stop severe bleeding</p>
+                    <p class="card-info" data-translate="bleeding_info">Cuts, wounds, hemorrhaging</p>
+                    <button class="video-btn" onclick="showVideo('bleeding')">📹 Watch Video</button>
+                </div>
+
+                <div class="category-card burns" data-category="burns">
+                    <span class="card-icon">🔥</span>
+                    <h3 class="card-title" data-translate="burns_title">Burns Treatment</h3>
+                    <p class="card-subtitle" data-translate="burns_subtitle">Thermal, chemical, electrical burns</p>
+                    <p class="card-info" data-translate="burns_info">1st, 2nd, and 3rd degree burns</p>
+                    <button class="video-btn" onclick="showVideo('burns')">📹 Watch Video</button>
+                </div>
+
+                <div class="category-card shock" data-category="shock">
+                    <span class="card-icon">⚡</span>
+                    <h3 class="card-title" data-translate="shock_title">Shock Treatment</h3>
+                    <p class="card-subtitle" data-translate="shock_subtitle">Medical shock response</p>
+                    <p class="card-info" data-translate="shock_info">Hypovolemic, cardiogenic shock</p>
+                    <button class="video-btn" onclick="showVideo('shock')">📹 Watch Video</button>
+                </div>
+
+                <div class="category-card broken-bone" data-category="broken-bone">
+                    <span class="card-icon">🦴</span>
+                    <h3 class="card-title" data-translate="broken_bone_title">Broken Bones</h3>
+                    <p class="card-subtitle" data-translate="broken_bone_subtitle">Fracture management</p>
+                    <p class="card-info" data-translate="broken_bone_info">Sprains, fractures, dislocations</p>
+                    <button class="video-btn" onclick="showVideo('broken-bone')">📹 Watch Video</button>
+                </div>
+
+                <div class="category-card unconscious" data-category="unconscious">
+                    <span class="card-icon">😵</span>
+                    <h3 class="card-title" data-translate="unconscious_title">Unconsciousness</h3>
+                    <p class="card-subtitle" data-translate="unconscious_subtitle">Unresponsive person care</p>
+                    <p class="card-info" data-translate="unconscious_info">Fainting, coma, loss of consciousness</p>
+                    <button class="video-btn" onclick="showVideo('unconscious')">📹 Watch Video</button>
+                </div>
+
+                <div class="category-card heat-stroke" data-category="heat-stroke">
+                    <span class="card-icon">🌡️</span>
+                    <h3 class="card-title" data-translate="heat_stroke_title">Heat Stroke</h3>
+                    <p class="card-subtitle" data-translate="heat_stroke_subtitle">Heat-related emergencies</p>
+                    <p class="card-info" data-translate="heat_stroke_info">Hyperthermia, heat exhaustion</p>
+                    <button class="video-btn" onclick="showVideo('heat-stroke')">📹 Watch Video</button>
+                </div>
+
+                <div class="category-card asthma" data-category="asthma">
+                    <span class="card-icon">🫁</span>
+                    <h3 class="card-title" data-translate="asthma_title">Asthma Attack</h3>
+                    <p class="card-subtitle" data-translate="asthma_subtitle">Breathing difficulties</p>
+                    <p class="card-info" data-translate="asthma_info">Severe asthma, respiratory distress</p>
+                    <button class="video-btn" onclick="showVideo('asthma')">📹 Watch Video</button>
+                </div>
+
+                <div class="category-card choking" data-category="choking">
+                    <span class="card-icon">🗣️</span>
+                    <h3 class="card-title" data-translate="choking_title">Choking</h3>
+                    <p class="card-subtitle" data-translate="choking_subtitle">Airway obstruction</p>
+                    <p class="card-info" data-translate="choking_info">Foreign object in throat</p>
+                    <button class="video-btn" onclick="showVideo('choking')">📹 Watch Video</button>
+                </div>
+
+                <div class="category-card drowning" data-category="drowning">
+                    <span class="card-icon">🌊</span>
+                    <h3 class="card-title" data-translate="drowning_title">Drowning</h3>
+                    <p class="card-subtitle" data-translate="drowning_subtitle">Water emergency rescue</p>
+                    <p class="card-info" data-translate="drowning_info">Water rescue, CPR, recovery position</p>
+                    <button class="video-btn" onclick="showVideo('drowning')">📹 Watch Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Medical Resources Tab -->
+    <div id="medical-resources" class="tab-content">
+        <div class="container">
+            <h2 style="text-align: center; color: white; margin-bottom: 30px;" data-translate="medical_resources_title">🏥 Medical Resources</h2>
+            <div class="resource-section">
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">🏥</div>
+                        <div class="resource-title" data-translate="hospitals_title">Major Hospitals</div>
+                        <div class="resource-subtitle" data-translate="hospitals_subtitle">Emergency medical facilities in Kano</div>
+                    </div>
+                    <ul class="resource-list">
+                        <li><span data-translate="aminu_kano_hospital">Aminu Kano Teaching Hospital</span><span class="contact-number">+234 64 664 004</span></li>
+                        <li><span data-translate="murtala_hospital">Murtala Mohammed Specialist Hospital</span><span class="contact-number">+234 64 631 313</span></li>
+                        <li><span data-translate="hasiya_bayero_hospital">Hasiya Bayero Pediatric Hospital</span><span class="contact-number">+234 64 632 556</span></li>
+                        <li><span data-translate="tarauni_general_hospital">Tarauni General Hospital</span><span class="contact-number">+234 64 663 772</span></li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">🩸</div>
+                        <div class="resource-title" data-translate="blood_banks_title">Blood Banks</div>
+                        <div class="resource-subtitle" data-translate="blood_banks_subtitle">Emergency blood supply in Kano</div>
+                    </div>
+                    <ul class="resource-list">
+                        <li><span data-translate="kano_blood_bank">Kano State Blood Transfusion Service</span><span class="contact-number">+234 64 664 005</span></li>
+                        <li><span data-translate="aminu_kano_blood">Aminu Kano Blood Bank</span><span class="contact-number">+234 64 664 004</span></li>
+                        <li><span data-translate="red_cross_kano">Nigerian Red Cross Society Kano</span><span class="contact-number">+234 64 632 441</span></li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">🚑</div>
+                        <div class="resource-title" data-translate="ambulance_title">Ambulance Services</div>
+                        <div class="resource-subtitle" data-translate="ambulance_subtitle">Emergency transport in Kano</div>
+                    </div>
+                    <ul class="resource-list">
+                        <li><span data-translate="kano_ambulance">Kano State Ambulance Service</span><span class="contact-number">199</span></li>
+                        <li><span data-translate="federal_road_safety_kano">Federal Road Safety Corps Kano</span><span class="contact-number">122</span></li>
+                        <li><span data-translate="tarauni_ambulance">Tarauni LGA Emergency Service</span><span class="contact-number">+234 64 663 773</span></li>
+                    </ul>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-header">
+                        <div class="resource-icon">☠️</div>
+                        <div class="resource-title" data-translate="poison_control_title">Poison Control</div>
+                        <div class="resource-subtitle" data-translate="poison_control_subtitle">24/7 poison help</div>
+                    </div>
+                    <ul class="resource-list">
+                        <li><span data-translate="poison_hotline">National Poison Control Hotline</span><span class="contact-number">199</span></li>
+                        <li><span data-translate="drug_info">NAFDAC Drug Information</span><span class="contact-number">+234 1 454 3001</span></li>
+                        <li><span data-translate="emergency_toxicology">Emergency Toxicology Unit</span><span class="contact-number">112</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Contacts Tab -->
+    <div id="emergency-contacts" class="tab-content">
+        <div class="container">
+            <h2 style="text-align: center; color: white; margin-bottom: 30px;" data-translate="emergency_contacts_title">📞 Emergency Contacts</h2>
+            <div class="contact-section">
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div class="contact-icon">🚨</div>
+                        <div class="contact-title" data-translate="general_emergency_title">General Emergency</div>
+                    </div>
+                    <ul class="contact-list">
+                        <li>
+                            <span class="contact-name" data-translate="nema">NEMA (National Emergency)</span>
+                            <span class="contact-phone">+234 802 323 0012</span>
+                        </li>
+                        <li>
+                            <span class="contact-name" data-translate="kano_sema">Kano SEMA (State Emergency)</span>
+                            <span class="contact-phone">+234 803 305 9959</span>
+                        </li>
+                        <li>
+                            <span class="contact-name" data-translate="road_safety">Federal Road Safety</span>
+                            <span class="contact-phone">122</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div class="contact-icon">🔒</div>
+                        <div class="contact-title" data-translate="security_emergency_title">Security Emergency</div>
+                    </div>
+                    <ul class="contact-list">
+                        <li>
+                            <span class="contact-name" data-translate="police_helpline">Police Helpline</span>
+                            <span class="contact-phone">199</span>
+                        </li>
+                        <li>
+                            <span class="contact-name" data-translate="kano_police">Kano State Police Command</span>
+                            <span class="contact-phone">+234 64 632 774</span>
+                        </li>
+                        <li>
+                            <span class="contact-name" data-translate="crime_stoppers">Crime Stoppers</span>
+                            <span class="contact-phone">+234 1 234 5678</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Learn More Tab -->
+    <div id="learn-more" class="tab-content">
+        <div class="container">
+            <h2 style="text-align: center; color: white; margin-bottom: 30px;" data-translate="learn_more_title">📚 Learn More</h2>
+            <div class="learn-section">
+                <div class="learn-card">
+                    <div class="learn-header">
+                        <div class="learn-icon">🎓</div>
+                        <div class="learn-title" data-translate="cpr_training_title">CPR Training Centers</div>
+                    </div>
+                    <div class="learn-content" data-translate="cpr_training_content">
+                        Learn life-saving CPR techniques from certified instructors. Find training centers near you and get certified in cardiopulmonary resuscitation.
+                    </div>
+                    <button class="learn-button" data-translate="find_centers">Find Centers Near Me</button>
+                </div>
+
+                <div class="learn-card">
+                    <div class="learn-header">
+                        <div class="learn-icon">🏥</div>
+                        <div class="learn-title" data-translate="first_aid_courses_title">First Aid Courses</div>
+                    </div>
+                    <div class="learn-content" data-translate="first_aid_courses_content">
+                        Comprehensive first aid training courses covering emergency response, wound care, and basic life support techniques.
+                    </div>
+                    <button class="learn-button" data-translate="enroll_now">Enroll Now</button>
+                </div>
+
+                <div class="learn-card">
+                    <div class="learn-header">
+                        <div class="learn-icon">📱</div>
+                        <div class="learn-title" data-translate="mobile_app_title">Mobile Emergency App</div>
+                    </div>
+                    <div class="learn-content" data-translate="mobile_app_content">
+                        Download our mobile app for offline access to emergency guides, GPS location sharing, and quick emergency contacts.
+                    </div>
+                    <button class="learn-button" data-translate="download_app">Download App</button>
+                </div>
+
+                <div class="learn-card">
+                    <div class="learn-header">
+                        <div class="learn-icon">👥</div>
+                        <div class="learn-title" data-translate="community_training_title">Community Training</div>
+                    </div>
+                    <div class="learn-content" data-translate="community_training_content">
+                        Organize first aid training sessions in your community. Learn how to become a first aid instructor and train others.
+                    </div>
+                    <button class="learn-button" data-translate="organize_training">Organize Training</button>
+                </div>
+
+                <div class="learn-card">
+                    <div class="learn-header">
+                        <div class="learn-icon">🎥</div>
+                        <div class="learn-title" data-translate="video_tutorials_title">Video Tutorials</div>
+                    </div>
+                    <div class="learn-content" data-translate="video_tutorials_content">
+                        Watch step-by-step video demonstrations of first aid techniques. Visual learning for all emergency procedures.
+                    </div>
+                    <button class="learn-button" data-translate="watch_videos">Watch Videos</button>
+                </div>
+
+                <div class="learn-card">
+                    <div class="learn-header">
+                        <div class="learn-icon">📋</div>
+                        <div class="learn-title" data-translate="certification_title">Get Certified</div>
+                    </div>
+                    <div class="learn-content" data-translate="certification_content">
+                        Earn official first aid and CPR certifications recognized by employers and organizations. Valid for 2 years.
+                    </div>
+                    <button class="learn-button" data-translate="get_certified">Get Certified</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="footer_emergency_title">🚨 Emergency Contacts</h3>
+                <ul>
+                    <li data-translate="footer_emergency_services">Emergency Services: 112, 199</li>
+                    <li data-translate="footer_police">Police: 199</li>
+                    <li data-translate="footer_fire">Fire Service: 199</li>
+                    <li data-translate="footer_kano">Kano State Emergency: +234 803 305 9959</li>
+                    <li data-translate="footer_nema">NEMA: 08023230012</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-translate="footer_medical_title">🏥 Medical Resources</h3>
+                <ul>
+                    <li><a href="#" id="findHospitalLink" data-translate="footer_find_hospital">Find Nearest Hospital</a></li>
+                    <li><a href="#" id="poisonControlLink" data-translate="footer_poison_control">Poison Control Center</a></li>
+                    <li><a href="#" id="bloodBankLink" data-translate="footer_blood_bank">Blood Bank Locator</a></li>
+                    <li><a href="#" id="ambulanceLink" data-translate="footer_ambulance">Ambulance Services</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-translate="footer_learn_title">📚 Learn More</h3>
+                <ul>
+                    <li><a href="#" id="cprTrainingLink" data-translate="footer_cpr_training">CPR Training Centers</a></li>
+                    <li><a href="#" id="firstAidCoursesLink" data-translate="footer_first_aid_courses">First Aid Courses</a></li>
+                    <li><a href="#" id="downloadGuideLink" data-translate="footer_download_guide">Download Offline Guide</a></li>
+                    <li><a href="#" id="communityTrainingLink" data-translate="footer_community_training">Community Training</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-translate="footer_about_title">ℹ️ About This Guide</h3>
+                <p data-translate="footer_disclaimer">This guide provides general first aid information. Always seek professional medical help in emergencies. The information here is not a substitute for proper medical training.</p>
+                <p><strong data-translate="footer_remember">Remember:</strong> <span data-translate="footer_call_emergency">When in doubt, call emergency services immediately!</span></p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p data-translate="footer_copyright">&copy; 2025 First Aid Emergency Guide. Created to save lives. Share knowledge, save lives. 🆘</p>
+            <p data-translate="footer_updated">Last updated: August 2025 | Made with ❤️ for Kano State, Nigeria</p>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeVideo()">&times;</span>
+            <div id="videoContainer">
+                <!-- Video will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Status Indicator -->
+    <div id="voiceStatus" class="voice-status">
+        <span id="voiceStatusText">Ready to read</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
